@@ -9,13 +9,15 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title> Piyush's Portfolio</title>
+        <title>Piyush's Portfolio</title>
       </Head>
 
-      {/* Header */}
       <Header />
 
       {/* Hero */}
+      <section id="hero">
+
+      </section>
 
       {/* About */}
 
@@ -26,7 +28,6 @@ export default function Home() {
       {/* Projects */}
 
       {/* Contact Me */}
-
     </div>
   );
 }
