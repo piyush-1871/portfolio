@@ -20,7 +20,7 @@ function Skills({}: Props) {
        overflow-hidden flex-col text-center
        md:text-left xl:flex-row max-w-[2000px]
        xl:px-10 min-h-screen justify-center
-       xl:space-y-0 mx-auto items-center
+       xl:space-y-2 mx-auto items-center
        "
     >
       <h3
@@ -41,6 +41,15 @@ function Skills({}: Props) {
 
       <div className="grid grid-cols-4 
       gap-5">
+        <Skill />
+        <Skill />
+        <Skill />
+        <Skill />
+        <Skill />
+        <Skill />
+        <Skill />
+        <Skill />
+        <Skill />
         <Skill />
       </div>
     </motion.div>
