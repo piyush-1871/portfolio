@@ -1,4 +1,4 @@
-import { Projects } from "../typing";
+import { Project } from "../typing";
 
 export const fetchProjects = async () => {
   const res = await fetch(
@@ -6,7 +6,7 @@ export const fetchProjects = async () => {
   );
 
   const data = await res.json();
-  const projects: Projects[] = data.projects;
+  const projects: Project[] = data.projects;
 
   // console.log('fetching', projects);
 

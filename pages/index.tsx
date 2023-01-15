@@ -4,16 +4,31 @@ import { Inter } from "@next/font/google";
 import Header from "../components/Header";
 import Hero from "../components/Hero";
 import About from "../components/About";
-import Experience from "../components/Experience";
+import WorkExperience from "../components/WorkExperience";
 import Skills from "../components/Skills";
 import Projects from "../components/Projects";
 import ContactMe from "../components/ContactMe";
 import Link from "next/link";
 import { HomeIcon } from "@heroicons/react/24/solid";
+import { Experience, PageInfo, Project, Skill, Social } from "../typing";
+import { GetStaticProps, NextPage } from "next";
+import { fetchPageInfo } from "../utils/fetchPageInfo";
+import { fetchExperiences } from "../utils/fetchExperience";
+import { fetchSkills } from "../utils/fetchSkills";
+import { fetchProjects } from "../utils/fetchProjects";
+import { fetchSocials } from "../utils/fetchSocials";
+
+type Props = {
+  pageInfo: PageInfo;
+  experiences: Experience[];
+  skills: Skill[];
+  projects: Project[];
+  socials: Social[];
+};
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Home() {
+const Home= ({pageInfo, experiences, projects, skills, socials}: Props) => {
   return (
     <div
       className="bg-[rgb(36,36,36)]
@@ -40,7 +55,7 @@ export default function Home() {
 
       {/* Experience */}
       <section id="experience" className="snap-center">
-        <Experience />
+        <WorkExperience />
       </section>
 
       {/* Skills */}
@@ -75,3 +90,25 @@ export default function Home() {
     </div>
   );
 }
+
+export default Home;
+
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const pageInfo: PageInfo = await fetchPageInfo();
+  const experiences: Experience[] = await fetchExperiences();
+  const skills: Skill[] = await fetchSkills();
+  const projects: Project[] = await fetchProjects();
+  const socials: Social[] = await fetchSocials();
+
+  return {
+    props: {
+      pageInfo,
+      experiences,
+      skills,
+      projects,
+      socials,
+    },
+
+    revalidate: 10,
+  };
+};
