@@ -39,7 +39,7 @@ function About({pageInfo}: Props) {
         viewport={{ once: true }}
         src={urlFor(pageInfo?.profilePic).url()}
         alt="my-pic"
-        className="-mb-28 md:mb-0 flex-shrink-0 w-56 h-56 rounded-full object-cover md:rounded-lg md:w-64 md:h-95 xl:w-[300px] xl:h-[380px]"
+        className="-mb-28 md:mb-0 flex-shrink-0 w-36 h-36 rounded-full object-cover md:rounded-lg md:w-64 md:h-96 xl:w-[300px] xl:h-[380px]"
       />
       <div className="space-y-10 px-0 md:px-10">
         <h4 className="text-4xl font-semibold">Here's a <span className="underline decoration-[#F7AB0A]/50">little</span> {" "}
