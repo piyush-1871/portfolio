@@ -1,9 +1,13 @@
 import { motion } from "framer-motion";
 import React from "react";
+import { urlFor } from "../sanity";
+import { PageInfo } from "../typing";
 
-type Props = {};
+type Props = {
+  pageInfo: PageInfo
+};
 
-function About({}: Props) {
+function About({pageInfo}: Props) {
   return (
     <motion.div
     initial={{
@@ -33,7 +37,7 @@ function About({}: Props) {
           duration: 1.2,
         }}
         viewport={{ once: true }}
-        src="https://lh3.googleusercontent.com/a/AEdFTp7S1wOBLCUBiKK2iJu2oU_uCuxaksFCIq_hBOvkPA=s360-p-rw-no"
+        src={urlFor(pageInfo?.profilePic).url()}
         alt="my-pic"
         className="-mb-28 md:mb-0 flex-shrink-0 w-56 h-56 rounded-full object-cover md:rounded-lg md:w-64 md:h-95 xl:w-[300px] xl:h-[380px]"
       />
@@ -42,14 +46,7 @@ function About({}: Props) {
           background:
         </h4>
         <p className="text-sm ">
-          I'm 👨‍🦱Piyush Bhatnagar, currently a 3rd year student at Jamia Millia Islamia.
-          I have been coding for over 2 years now. 
-          I have a little experience with Nodejs and Expressjs, 
-          but I love to develop websites with Reactjs.
-          Being a 🏎️Mechanical Engineer, I realised very early my interest in Website Development.
-          So I started my 💻Coding journey with 📚Data Structures and Algorithms in C++,
-          then I realised that I haven't made anything that I can show
-          in my portfolio. So I took some online courses for 🧑‍💻MERN Stack Develoment and now I am here!! 
+          {pageInfo?.backgroundInformation}
         </p>
       </div>
     </motion.div>
