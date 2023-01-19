@@ -1,5 +1,5 @@
+import { GetStaticProps } from "next";
 import Head from "next/head";
-import Image from "next/image";
 import { Inter } from "@next/font/google";
 import Header from "../components/Header";
 import Hero from "../components/Hero";
@@ -11,7 +11,6 @@ import ContactMe from "../components/ContactMe";
 import Link from "next/link";
 import { HomeIcon } from "@heroicons/react/24/solid";
 import { Experience, PageInfo, Project, Skill, Social } from "../typing";
-import { GetStaticProps, NextPage } from "next";
 import { fetchPageInfo } from "../utils/fetchPageInfo";
 import { fetchExperiences } from "../utils/fetchExperience";
 import { fetchSkills } from "../utils/fetchSkills";
@@ -26,9 +25,8 @@ type Props = {
   socials: Social[];
 };
 
-const inter = Inter({ subsets: ["latin"] });
 
-const Home= ({pageInfo, experiences, projects, skills, socials}: Props) => {
+const Home = ({ pageInfo, experiences, projects, skills, socials }: Props) => {
   return (
     <div
       className="bg-[rgb(36,36,36)]
@@ -38,7 +36,7 @@ const Home= ({pageInfo, experiences, projects, skills, socials}: Props) => {
       scrollbar-thumb-[#F7AB0A]/80 scrollbar-thin"
     >
       <Head>
-        <title>Piyush's Portfolio</title>
+        <title>{pageInfo?.name} - Portfolio</title>
       </Head>
 
       <Header socials={socials} />
@@ -89,7 +87,7 @@ const Home= ({pageInfo, experiences, projects, skills, socials}: Props) => {
       </Link>
     </div>
   );
-}
+};
 
 export default Home;
 

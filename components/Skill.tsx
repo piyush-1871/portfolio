@@ -5,7 +5,7 @@ import { Skill } from "../typing";
 
 type Props = {
   directionLeft?: boolean;
-  skill: Skill
+  skill: Skill;
 };
 
 function Skill({ directionLeft, skill }: Props) {
@@ -27,7 +27,7 @@ function Skill({ directionLeft, skill }: Props) {
         }}
         src={urlFor(skill.image).url()}
         className="rounded-full border border-gray-500
-        object-cover w-24 h-24
+        object-cover w-24 h-24 
         filter group-hover:grayscale transition duration-200
         ease-in-out"
       />
@@ -35,7 +35,7 @@ function Skill({ directionLeft, skill }: Props) {
         className="absolute opacity-0
       group-hover:opacity-80 transition 
       duration-300 ease-in-out group-hover:bg-transparent
-      h-24 w-24  xl:w-32 xl:h-32
+      h-24 w-24  
       rounded-full z-0"
       >
         <div
